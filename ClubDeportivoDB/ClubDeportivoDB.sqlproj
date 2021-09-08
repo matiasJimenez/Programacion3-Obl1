@@ -98,5 +98,6 @@
     <Build Include="dbo\Stored Procedures\CustOrdersOrders.sql" />
     <Build Include="dbo\Stored Procedures\CustOrdersDetail.sql" />
     <Build Include="dbo\Stored Procedures\CustOrderHist.sql" />
+    <Build Include="dbo\Tables\Usuarios.sql" />
   </ItemGroup>
 </Project>
