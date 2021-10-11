@@ -25,6 +25,10 @@ namespace ClubDeportivo
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //Login
+            bundles.Add(new StyleBundle("~/Content/login").Include(
+                      "~/Content/Login/Login.css"));
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Socios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="block-title">
+    <h3>Socios</h3>
+</div>
+<hr />
+<div class="row" id="btnAction">
+    <div class="col-md-12">
+        <div class="grid-action" style="float: left;">
+            <button id="btnAddSocio" class="btn btn-secondary">Agregar Socio</button>
+        </div>
+    </div>
+</div>
+<div class="wrapper" style="height: 70vh; width: 100%;">
+    <div class="table-responsive" style="margin-top:50px;">
+        <table id="tableSocio" class="table hover" width="100%">
+            <thead>
+                <tr>
+                    <th style="width: 50%">Nombre y Apellido</th>
+                    <th style="width: 30%">Cédula</th>
+                    <th style="width: 20%"></th>
+                </tr>
+            </thead>
+            <tbody style=""></tbody>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Content/datapicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/datapicker/locales/bootstrap-datepicker.es.js"></script>
+    <script type="text/javascript" src="~/Content/DataTables/datatables.min.js"></script>
+    <script src="~/Scripts/Socio/Socio.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Socio.init();
+        });
+    </script>
+}

@@ -17,8 +17,6 @@ namespace ClubDeportivo.Controllers
         {
             ViewBag.Message = "Your application description page test HOLA.";
 
-            dhhdhf
-
             return View();
         }
 
