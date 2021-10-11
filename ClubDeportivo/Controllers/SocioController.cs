@@ -20,7 +20,7 @@ namespace ClubDeportivo.Controllers
             return View();
         }
 
-        public ActionResult CreateUpdateSocio()
+        public ActionResult SocioDetails()
         {
             return View();
         }
@@ -35,6 +35,50 @@ namespace ClubDeportivo.Controllers
                 Filtro filtro = new Filtro();
                 data = await _socioService.GetSocios(filtro);
                 responseModel.DataModel = data;
+            }
+            catch (Exception e)
+            {
+                responseModel = new ResponseModel(1, "Error: " + MethodBase.GetCurrentMethod().DeclaringType.Name + "." + MethodBase.GetCurrentMethod().Name, e.ToString());
+            }
+
+            return Json(new { response = responseModel }, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> GetSocio(int? idSocio)
+        {
+            ResponseModel responseModel = new ResponseModel();
+
+            try
+            {
+                Socio data = new Socio();
+                data = await _socioService.GetSocio(idSocio ?? null);
+                responseModel.DataModel = data;
+            }
+            catch (Exception e)
+            {
+                responseModel = new ResponseModel(1, "Error: " + MethodBase.GetCurrentMethod().DeclaringType.Name + "." + MethodBase.GetCurrentMethod().Name, e.ToString());
+            }
+
+            return Json(new { response = responseModel }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateOrUpdateSocio(Socio socio)
+        {
+            ResponseModel responseModel = new ResponseModel();
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    responseModel.DataModel = await _socioService.CreateUpdateSocio(socio);
+                }
+                else
+                {
+                    responseModel.Code = 700;
+                    responseModel.Message = "Debe de completar todos los campos.";
+                }
+
             }
             catch (Exception e)
             {

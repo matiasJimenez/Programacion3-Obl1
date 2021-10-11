@@ -52,7 +52,7 @@ namespace BusinessLogic.BusinessService
             return socios.OrderBy(x => x.NombreCompleto).ThenBy(x => x.Cedula).ToList();
         }
 
-        public async Task<Socio> GetSocio(int idSocio)
+        public async Task<Socio> GetSocio(int? idSocio)
         {
             Socio socio = new Socio();
             SQLDataAccessParameters parameters = new SQLDataAccessParameters();
@@ -83,7 +83,6 @@ namespace BusinessLogic.BusinessService
             parameters.AddStringParameter("Cedula", 0, socio.Cedula);
             parameters.AddNullableDatetimeParameter("FechaNacimiento", socio.FechaNacimiento);
             parameters.AddBitParameter("Activo", socio.Activo);
-            parameters.AddNullableDatetimeParameter("FechaAlta", socio.FechaAlta);
 
             DataSet ds = await _dataAccess.ExecuteDataset("[dbo].[spCreateUpdateSocio]", CommandType.StoredProcedure, parameters);
 

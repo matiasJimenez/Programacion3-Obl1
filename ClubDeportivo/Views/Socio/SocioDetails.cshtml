@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Detalles Socio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="block-title">
+    <h3>Socio</h3>
+</div>
+<hr />
+
+<div class="block full">
+    <form id="formPackageDetail" class="form-horizontal" onsubmit="return false;">
+        <div class="row">
+            <div class="col-md-3 container-formcontrol">
+                <span for="txtNombreCompleto" class="form-text obligatorio">Nombre Completo</span>
+                <input id="txtNombreCompleto" class="form-control formElement " type="text" name="txtNombreCompleto" placeholder="Nombre y Apellido" />
+            </div>
+            <div class="col-md-3 container-formcontrol">
+                <span for="txtCedula" class="form-text obligatorio">Cedula</span>
+                <input id="txtCedula" class="form-control formElement" type="text" name="txtCedula" placeholder="Cedula" />
+            </div>
+            <div class="col-md-3 container-formcontrol">
+                <span for="inputBirth" class="form-text obligatorio">Fecha de Nacimiento</span>
+                <div class="input-group date" id="divBirthDate" name="divBirthDate" data-provide="datepicker">
+                    <input id="inputBirth" name="inputBirth" type="text" class="form-control" placeholder="DD/MM/AAAA">
+                    <span class="input-group-addon inputDate"><i class="fas fa-calendar-week"></i></span>
+                </div>
+            </div>
+            @*<div class="col-md-3 container-formcontrol">
+                <span for="inputCity" class="form-text">City</span>
+                <input id="inputCity" class="form-control formElement" type="text" name="inputCity" placeholder="City" />
+            </div>*@
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid-action" style="float: right;">
+                    <button id="goBack" class="btn btn-secondary">Cancelar</button>
+                    <button id="btnSaveSocio" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/moment/moment-with-locales.js"></script>
+    <script src="~/Content/datapicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/datapicker/locales/bootstrap-datepicker.es.js"></script>
+    <script src="~/Scripts/Socio/SocioDetails.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            SocioDetails.init();
+        });
+    </script>
+}

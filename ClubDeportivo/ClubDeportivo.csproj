@@ -1916,7 +1916,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment\moment-with-locales.js" />
     <Content Include="Scripts\Socio\Socio.js" />
+    <Content Include="Scripts\Socio\SocioDetails.js" />
     <Content Include="Scripts\toastr\toastr.min.css" />
     <Content Include="Scripts\toastr\toastr.min.js" />
     <Content Include="Scripts\Tools\Tools.js" />
@@ -1935,7 +1937,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Socio\Socios.cshtml" />
-    <Content Include="Views\Socio\CreateUpdateSocio.cshtml" />
+    <Content Include="Views\Socio\SocioDetails.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
   </ItemGroup>
