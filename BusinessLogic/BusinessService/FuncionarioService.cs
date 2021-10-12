@@ -43,8 +43,6 @@ namespace BusinessLogic.BusinessService
 
             DataSet ds = await _dataAccess.ExecuteDataset("[dbo].[spCreateFuncionario]", CommandType.StoredProcedure, parameters);
 
-            funcionario.IdFuncionario = Int32.Parse(ds.Tables[0].Rows[0]["IdFuncionario"].ToString());
-
             return funcionario;
         }
 

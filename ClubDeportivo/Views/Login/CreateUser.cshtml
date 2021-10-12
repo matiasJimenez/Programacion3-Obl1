@@ -13,7 +13,7 @@
         <i class="fa fa-user"></i>
         <input id="txtContraseña" type="password" placeholder="Contraseña" />
         <i class="fa fa-key"></i>
-        <button>
+        <button id="btnSaveFuncionario">
             <span>Crear Usuario</span>
         </button>
     </form>
@@ -21,4 +21,9 @@
 
 @section Scripts{
     <script src="~/Scripts/Login/CreateUser.js"></script>
+    <script>
+        $(document).ready(function () {
+            FuncionarioDetails.init();
+        });
+    </script>
 }

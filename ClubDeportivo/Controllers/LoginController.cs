@@ -66,5 +66,31 @@ namespace ClubDeportivo.Controllers
 
             return Json(new { response = responseModel }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateFuncionario(Funcionario funcionario)
+        {
+            ResponseModel responseModel = new ResponseModel();
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    responseModel.DataModel = await _funcionarioService.CreateFuncionario(funcionario);
+                }
+                else
+                {
+                    responseModel.Code = 700;
+                    responseModel.Message = "Debe de completar todos los campos.";
+                }
+
+            }
+            catch (Exception e)
+            {
+                responseModel = new ResponseModel(1, "Error: " + MethodBase.GetCurrentMethod().DeclaringType.Name + "." + MethodBase.GetCurrentMethod().Name, e.ToString());
+            }
+
+            return Json(new { response = responseModel }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

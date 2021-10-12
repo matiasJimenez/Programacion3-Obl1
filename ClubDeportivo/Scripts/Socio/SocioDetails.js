@@ -44,7 +44,7 @@
             var datebirth = moment(data.socio.FechaNacimiento).format("DD/MM/YYYY");
             $('#divBirthDate').datepicker("setDate", datebirth);
         }
-        $("#ckbActivo").prop('checked', data.socio.Activo);//val(data.socio.Activo);
+        $("#ckbActivo").prop('checked', data.socio.Activo);
     }
 
     function disableForm() {
