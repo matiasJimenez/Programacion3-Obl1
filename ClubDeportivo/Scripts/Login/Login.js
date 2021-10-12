@@ -10,6 +10,7 @@ $('.login').on('submit', function (e) {
         $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Autenticando');
+    $('#stateSpinner').prepend('<i id="spinnerLog" class="spinner"></i>');
 
     logFuncionario($this, $state);
 });
@@ -34,11 +35,13 @@ function logFuncionario($this, $state) {
                 toastr.warning(responseDB.response.Message, "Atención");
                 $state.html('Log in');
                 $this.removeClass('ok loading');
+                $('#spinnerLog').remove();
                 working = false;
             } else if (responseDB.response.Code != 0) {
                 toastr.error(responseDB.response.Message, "Error");
                 $state.html('Log in');
                 $this.removeClass('ok loading');
+                $('#spinnerLog').remove();
                 working = false;
             } else {
                 logOk($this, $state);                

@@ -5,6 +5,7 @@
     [FechaNacimiento] DATE          NOT NULL,
     [FechaAlta]       DATE          NOT NULL,
     [Activo]          BIT           NOT NULL,
-    CONSTRAINT [PK_Socio] PRIMARY KEY CLUSTERED ([IdSocio] ASC)
+    CONSTRAINT [PK_Socio_IdSocio] PRIMARY KEY CLUSTERED ([IdSocio] ASC),
+    CONSTRAINT [UK_Socio_Cedula] UNIQUE ([Cedula])
 );
 

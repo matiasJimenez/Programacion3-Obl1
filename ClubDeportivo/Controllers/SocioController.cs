@@ -17,22 +17,29 @@ namespace ClubDeportivo.Controllers
 
         public ActionResult Socios()
         {
-            return View();
+            if (Convert.ToBoolean(Session["Logueado"]))
+            {
+                return View();
+            }
+            return Redirect("/Login/Login");
         }
 
         public ActionResult SocioDetails()
         {
-            return View();
+            if (Convert.ToBoolean(Session["Logueado"]))
+            {
+                return View();
+            }                
+            return Redirect("/Login/Login");
         }
 
-        public async Task<ActionResult> GetSocios()
+        public async Task<ActionResult> GetSocios(Filtro filtro)
         {
             ResponseModel responseModel = new ResponseModel();
 
             try
             {
                 IList<Socio> data = new List<Socio>();
-                Filtro filtro = new Filtro();
                 data = await _socioService.GetSocios(filtro);
                 responseModel.DataModel = data;
             }

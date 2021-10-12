@@ -13,8 +13,25 @@
             <button id="btnAddSocio" class="btn btn-secondary">Agregar Socio</button>
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="row">
+            <h4>Filtro</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label">Cédula:</label>
+                <input type="text" class="form-control" id="filtroCedula" autocomplete="off" />
+            </div>
+            <div class="col-md-10">
+                <div class="grid-actions" style="float: right;">
+                    <button id="btn_FiltroLimpiar" type="button" class="btn btn-effect-ripple btn-danger remove-item" style="margin-right: 10px;"><span><i class="fa fa-times"></i> Limpiar Filtro</span></button>
+                    <button id="btn_FiltroBuscar" type="button" class="btn btn-primary pull-right"><span><i class="fa fa-search"></i> Filtrar</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="wrapper" style="height: 70vh; width: 100%;">
+<div class="wrapper">
     <div class="table-responsive" style="margin-top:50px;">
         <table id="tableSocio" class="table hover" width="100%">
             <thead>
@@ -29,7 +46,6 @@
         </table>
     </div>
 </div>
-
 
 @section Scripts{
     <script src="~/Content/datapicker/js/bootstrap-datepicker.js"></script>

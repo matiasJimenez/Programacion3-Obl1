@@ -8,37 +8,50 @@
     <link rel="stylesheet" href="~/Content/datapicker/css/datepicker3.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/DataTables/datatables.min.css" />
     <link href="~/Scripts/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Scripts/fontawesome-free-5.12.1-web/css/all.css" />
     @*@Styles.Render("~/Content/css")*@
     @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
-    <@*div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <div class="background-image">
+    </div>
+    <div class="wrapperCustom">
+        <div class="navbar navbar-inverse navbar-fixed-top navBackgroundColor">
+            <div class="container">
+                <div class="navbar-header">
+                    @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>*@
+                    <div class="image">
+                        <img src="../Content/Images/user2-160x160.png" class="img-circle elevation-2" alt="User Image">
+                        <div style="float:right; padding-left:5px; padding-top: 6px">
+                            <span class="d-block">@HttpContext.Current.Session["LogueadoNombre"].ToString()</span>
+                            @Html.ActionLink("Cerrar Sesión", "Logout", "Login", new { area = "" }, new { @class = "logout" })
+                        </div>
+                    </div>
+
+                </div>
+                @*<div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>*@
             </div>
         </div>
-    </div>*@
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <div class="container body-content" style="background-color: white;">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
     </div>
+    
 
     <script src="~/Scripts/fontawesome-free-5.12.1-web/js/all.js"></script>
     <script src="~/Scripts/Tools/Tools.js"></script>

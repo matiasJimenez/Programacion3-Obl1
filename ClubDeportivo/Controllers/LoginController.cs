@@ -20,9 +20,15 @@ namespace ClubDeportivo.Controllers
             return View();
         }
 
-        public ActionResult Logout()
+        public ActionResult CreateUser()
         {
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return Redirect("/Login/Login");
         }
 
         public async Task<ActionResult> Authentication(string mail, string contraseña)
@@ -47,6 +53,8 @@ namespace ClubDeportivo.Controllers
                     }
                     else
                     {
+                        Session["LogueadoNombre"] = data.Mail;
+                        Session["Logueado"] = true;
                         responseModel.DataModel = data;
                     }                    
                 }                

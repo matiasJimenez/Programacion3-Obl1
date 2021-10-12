@@ -1,6 +1,8 @@
 ﻿var data = {};
 var Socio = function ($) {
 
+    var filtroData = undefined;
+
     function bindEvent() {
         initTableSocio();
 
@@ -16,6 +18,19 @@ var Socio = function ($) {
         });
 
         loadData();
+
+        $('#btn_FiltroBuscar').on('click', function () {
+            filtroData = {
+                Cedula: $('#filtroCedula').val()
+            };
+            loadData();
+        });
+
+        $('#btn_FiltroLimpiar').on('click', function () {
+            $('#filtroCedula').val("");
+            filtroData = {};
+            loadData();
+        });
     }
 
     function initTableSocio() {
@@ -67,6 +82,7 @@ var Socio = function ($) {
         $.ajax({
             method: 'POST',
             url: "/Socio/GetSocios",
+            data: filtroData,
             dataType: "json",
             cache: false
         }).done(function (responseDB) {

@@ -186,6 +186,7 @@
     <Content Include="Content\Font-awesome\webfonts\fa-regular-400.svg" />
     <Content Include="Content\Font-awesome\webfonts\fa-solid-900.svg" />
     <Content Include="Content\Images\deportes.jpg" />
+    <Content Include="Content\Images\user2-160x160.png" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1914,6 +1915,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Login\CreateUser.js" />
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment\moment-with-locales.js" />
@@ -1940,6 +1942,7 @@
     <Content Include="Views\Socio\SocioDetails.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Login\CreateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
