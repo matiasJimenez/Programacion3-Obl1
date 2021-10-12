@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Login</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link href="~/Scripts/toastr/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/Font-awesome/css/font-awesome.min.css" />
     @Styles.Render("~/Content/login")
 </head>
@@ -19,6 +20,8 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/Login/Login.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/toastr/toastr.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

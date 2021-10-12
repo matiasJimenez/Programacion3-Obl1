@@ -49,12 +49,10 @@ var Socio = function ($) {
                 {
                     data: function (row, type, set, meta) {
                         var editLink = '<a href="javascript:void(0)" data-idSocio="' + row.IdSocio + '" class="link-socio btn btn-secondary" style="width: 40px;"><i class="fa fa-pen"></i></a>';
-                        var deleteLink = '<a href="javascript:void(0)" onclick="Socio.removeSocio(' + row.IdSocio + ');" class="btn btn-secondary"><i class="fa fa-times"></i></a>';
 
                         var actions = ''
                             + '<div class="text-center" >'
                             + '     ' + (editLink)
-                            + '     ' + (deleteLink)
                             + '</div>';
                         return actions;
                     },

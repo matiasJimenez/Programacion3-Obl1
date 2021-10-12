@@ -44,29 +44,25 @@
             var datebirth = moment(data.socio.FechaNacimiento).format("DD/MM/YYYY");
             $('#divBirthDate').datepicker("setDate", datebirth);
         }
+        $("#ckbActivo").prop('checked', data.socio.Activo);//val(data.socio.Activo);
     }
 
-    function disableInputs() {
+    function disableForm() {
         $("#txtNombreCompleto").prop("disabled", true);
         $("#txtCedula").prop("disabled", true);
         $("#inputBirth").prop("disabled", true);
-        //$("#txtActivo").prop("disabled", true);
+        $("#ckbActivo").prop("disabled", true);
+        $("#goBack").prop("disabled", true);
+        $("#btnSaveSocio").prop("disabled", true);
     }
 
     function dataForm() {
-        var jsDate = $('#divBirthDate').datepicker('getDate');
-        if (jsDate !== null) {
-            jsDate instanceof Date;
-            jsDate.getDate();
-            jsDate.getMonth();
-            jsDate.getFullYear();
-        }
-
         socioData = {
             IdSocio: idSocio,
             NombreCompleto: $("#txtNombreCompleto").val(),
             Cedula: $("#txtCedula").val(),
-            FechaNacimiento: moment(jsDate).format('DD/MM/YYYY HH:mm')
+            FechaNacimiento: $("#inputBirth").val(),
+            Activo: $('#ckbActivo').is(":checked")
         };
     }
 
@@ -84,8 +80,8 @@
                 } else if (responseDB.response.Code != 0) {
                     toastr.error(responseDB.response.Message, "Error");
                 } else {
-                    toastr.success("Success", "");
-                    disableInputs();
+                    toastr.success("Guardado Exitoso", "");
+                    disableForm();
                     setInterval(function wait() {
                         localStorage.removeItem("IdSocio");
                         data = {};

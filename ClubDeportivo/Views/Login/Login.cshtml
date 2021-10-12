@@ -9,9 +9,9 @@
 <div class="wrapper">
     <form class="login">
         <p class="title">Iniciar sesión</p>
-        <input type="text" placeholder="Usuario" autofocus />
+        <input id="txtMail" type="text" placeholder="Mail" autofocus />
         <i class="fa fa-user"></i>
-        <input type="password" placeholder="Contraseña" />
+        <input id="txtContraseña" type="password" placeholder="Contraseña" />
         <i class="fa fa-key"></i>
         <button>
             <i class="spinner"></i>
@@ -19,3 +19,9 @@
         </button>
     </form>
 </div>
+
+@section Scripts{
+    <script src="~/Scripts/Login/Login.js"></script>
+
+    
+}

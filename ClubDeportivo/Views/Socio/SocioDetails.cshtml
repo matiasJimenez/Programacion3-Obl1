@@ -13,23 +13,25 @@
         <div class="row">
             <div class="col-md-3 container-formcontrol">
                 <span for="txtNombreCompleto" class="form-text obligatorio">Nombre Completo</span>
-                <input id="txtNombreCompleto" class="form-control formElement " type="text" name="txtNombreCompleto" placeholder="Nombre y Apellido" />
+                <input id="txtNombreCompleto" class="form-control formElement " type="text" name="txtNombreCompleto" placeholder="Nombre y Apellido"/>
             </div>
             <div class="col-md-3 container-formcontrol">
                 <span for="txtCedula" class="form-text obligatorio">Cedula</span>
-                <input id="txtCedula" class="form-control formElement" type="text" name="txtCedula" placeholder="Cedula" />
+                <input id="txtCedula" class="form-control formElement" type="text" name="txtCedula" placeholder="Cedula" maxlength="9"/>
             </div>
             <div class="col-md-3 container-formcontrol">
                 <span for="inputBirth" class="form-text obligatorio">Fecha de Nacimiento</span>
                 <div class="input-group date" id="divBirthDate" name="divBirthDate" data-provide="datepicker">
                     <input id="inputBirth" name="inputBirth" type="text" class="form-control" placeholder="DD/MM/AAAA">
-                    <span class="input-group-addon inputDate"><i class="fas fa-calendar-week"></i></span>
+                    <span class="input-group-addon inputDate"  style="position: absolute; right: 14px; top: 7px;"><i class="fas fa-calendar-week"></i></span>
                 </div>
             </div>
-            @*<div class="col-md-3 container-formcontrol">
-                <span for="inputCity" class="form-text">City</span>
-                <input id="inputCity" class="form-control formElement" type="text" name="inputCity" placeholder="City" />
-            </div>*@
+            <div class="col-md-3 container-formcontrol">
+                <label class="form-check-label" for="ckbActivo">Activo</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="ckbActivo">
+                </div>
+            </div>
         </div>
         <br />
         <div class="row">
