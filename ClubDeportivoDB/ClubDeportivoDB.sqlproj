@@ -69,5 +69,7 @@
     <Build Include="dbo\Stored Procedures\spGetSocio.sql" />
     <Build Include="dbo\Stored Procedures\spGetFuncionario.sql" />
     <Build Include="dbo\Stored Procedures\spCreateFuncionario.sql" />
+    <Build Include="dbo\Stored Procedures\spExistFuncionario.sql" />
+    <Build Include="dbo\Stored Procedures\spExistSocio.sql" />
   </ItemGroup>
 </Project>

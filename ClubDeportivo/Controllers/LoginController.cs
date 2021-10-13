@@ -76,7 +76,31 @@ namespace ClubDeportivo.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    responseModel.DataModel = await _funcionarioService.CreateFuncionario(funcionario);
+                    if (Funcionario.ValidarConatraseña(funcionario.Contraseña))
+                    {                        
+                        if (Funcionario.ValidarMail(funcionario.Mail))
+                        {
+                            if (await _funcionarioService.ExisteFuncionario(funcionario.Mail))
+                            {
+                                responseModel.Code = 700;
+                                responseModel.Message = "Ya se registró ese mail.";
+                            }
+                            else
+                            {
+                                responseModel.DataModel = await _funcionarioService.CreateFuncionario(funcionario);
+                            }                            
+                        }
+                        else
+                        {
+                            responseModel.Code = 700;
+                            responseModel.Message = "El mail no es válido";
+                        }
+                    }
+                    else
+                    {
+                        responseModel.Code = 700;
+                        responseModel.Message = "La contraseña debe de cumplir con al menos 6 caracteres que incluyan letras mayúsculas y minúsculas(al menos una de cada una) y dígitos(0 al 9).";
+                    }                    
                 }
                 else
                 {

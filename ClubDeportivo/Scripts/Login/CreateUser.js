@@ -2,15 +2,9 @@
     var funcionarioData = undefined;
 
     function bindEvent() {
-
-        $("#goBack").on("click", function () {
-            window.location.href = '/Socio/Socios';
-        });
-
         $("#btnSaveFuncionario").on("click", function () {
             saveFuncionario();
         });
-
     }
 
     function dataForm() {

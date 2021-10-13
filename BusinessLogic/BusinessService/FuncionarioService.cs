@@ -46,5 +46,26 @@ namespace BusinessLogic.BusinessService
             return funcionario;
         }
 
+        public async Task<bool> ExisteFuncionario(string mail)
+        {
+            Funcionario funcionario = null;
+            SQLDataAccessParameters parameters = new SQLDataAccessParameters();
+            parameters.AddStringParameter("Mail", 0, mail);
+
+            DataSet ds = await _dataAccess.ExecuteDataset("[dbo].[spExistFuncionario]", CommandType.StoredProcedure, parameters);
+
+            if(ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                {
+                    funcionario = new Funcionario();
+                    funcionario.IdFuncionario = int.Parse(row["IdFuncionario"].ToString());
+                    funcionario.Mail = row["Mail"].ToString();
+                    funcionario.Contraseña = row["Contraseña"].ToString();
+                }
+            }
+
+            return funcionario != null;
+        }
     }
 }

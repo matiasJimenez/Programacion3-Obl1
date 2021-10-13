@@ -101,5 +101,30 @@ namespace BusinessLogic.BusinessService
 
             return idSocio == id;
         }
+
+        public async Task<bool> ExisteSocio(string cedula)
+        {
+            Socio socio = null;
+            SQLDataAccessParameters parameters = new SQLDataAccessParameters();
+            parameters.AddStringParameter("Cedula", 0, cedula);
+
+            DataSet ds = await _dataAccess.ExecuteDataset("[dbo].[spExistSocio]", CommandType.StoredProcedure, parameters);
+
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                {
+                    socio = new Socio();
+                    socio.IdSocio = int.Parse(row["IdSocio"].ToString());
+                    socio.NombreCompleto = row["NombreCompleto"].ToString();
+                    socio.Cedula = row["Cedula"].ToString();
+                    socio.FechaNacimiento = row["FechaNacimiento"] != DBNull.Value ? DateTime.Parse(row["FechaNacimiento"].ToString()) : DateTime.MinValue;
+                    socio.Activo = bool.Parse(row["Activo"].ToString());
+                    socio.FechaAlta = row["FechaAlta"] != DBNull.Value ? DateTime.Parse(row["FechaAlta"].ToString()) : DateTime.MinValue;
+                }
+            }
+
+            return socio != null;
+        }
     }
 }

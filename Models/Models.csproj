@@ -42,8 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actividad.cs" />
+    <Compile Include="Cuponera.cs" />
     <Compile Include="Filtro.cs" />
+    <Compile Include="FormaPago.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="PaseLibre.cs" />
     <Compile Include="Response\ResponseModel.cs" />
     <Compile Include="Socio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

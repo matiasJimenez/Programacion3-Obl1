@@ -78,7 +78,23 @@ namespace ClubDeportivo.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    responseModel.DataModel = await _socioService.CreateUpdateSocio(socio);
+                    if (Socio.ValidarCedula(socio.Cedula) && Socio.ValidarNombreCompleto(socio.NombreCompleto) && Socio.ValidadFechaNacimiento(socio.FechaNacimiento))
+                    {
+                        if (await _socioService.ExisteSocio(socio.Cedula))
+                        {
+                            responseModel.Code = 700;
+                            responseModel.Message = "Ya se registró esa cédula.";
+                        }
+                        else
+                        {
+                            responseModel.DataModel = await _socioService.CreateUpdateSocio(socio);
+                        }                        
+                    }
+                    else
+                    {
+                        responseModel.Code = 700;
+                        responseModel.Message = "Revisar que cumple con los siguientes validaciones: \n El socio debe ser mayor de 3 y menor de 90 años. \n El largo del nombre debe ser mayor a 6. \n La cédula debe tener entre 6 y 9 carácteres.";
+                    }
                 }
                 else
                 {
